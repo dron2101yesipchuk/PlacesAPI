@@ -19,17 +19,28 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pad-qi-2A2">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </tableView>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XyG-55-P41">
+                    <rect key="frame" x="50" y="318.5" width="275" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQl-cR-VDN">
+                    <rect key="frame" x="170" y="368.5" width="35" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="Find"/>
+                    <connections>
+                        <action selector="findRestaurants:" destination="-1" eventType="touchUpInside" id="RhZ-fc-Vkn"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Pad-qi-2A2" firstAttribute="leading" secondItem="ivv-Ia-KWP" secondAttribute="leading" id="8dJ-6p-19I"/>
-                <constraint firstItem="Pad-qi-2A2" firstAttribute="trailing" secondItem="ivv-Ia-KWP" secondAttribute="trailing" id="EwB-Zw-vRS"/>
-                <constraint firstItem="Pad-qi-2A2" firstAttribute="bottom" secondItem="ivv-Ia-KWP" secondAttribute="bottom" id="XXG-sh-Yrq"/>
-                <constraint firstItem="Pad-qi-2A2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="puT-zN-axQ"/>
+                <constraint firstItem="XyG-55-P41" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Gwg-e3-bgt"/>
+                <constraint firstItem="bQl-cR-VDN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="R7m-q7-Gb8"/>
+                <constraint firstItem="ivv-Ia-KWP" firstAttribute="trailing" secondItem="XyG-55-P41" secondAttribute="trailing" constant="50" id="X5X-Pg-w8E"/>
+                <constraint firstItem="bQl-cR-VDN" firstAttribute="top" secondItem="XyG-55-P41" secondAttribute="bottom" constant="20" id="knd-aO-quD"/>
+                <constraint firstItem="XyG-55-P41" firstAttribute="leading" secondItem="ivv-Ia-KWP" secondAttribute="leading" constant="50" id="yjC-MO-JM0"/>
             </constraints>
             <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
             <viewLayoutGuide key="safeArea" id="ivv-Ia-KWP"/>

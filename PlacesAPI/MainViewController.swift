@@ -9,11 +9,15 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func findRestaurants(_ sender: Any) {
+        let searchResultsViewControllers = SearchResultsTableViewController()
+        self.navigationController?.pushViewController(searchResultsViewControllers, animated: true)
+    }
 }
