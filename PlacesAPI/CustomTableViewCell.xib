@@ -18,21 +18,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="111.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Msx-cf-x4r">
-                        <rect key="frame" x="10" y="5" width="300" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Msx-cf-x4r">
+                        <rect key="frame" x="10" y="10" width="300" height="29"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUC-4l-Ugn">
-                        <rect key="frame" x="10" y="35.5" width="300" height="35.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="10" y="44" width="300" height="31"/>
+                        <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYV-lm-cdu">
-                        <rect key="frame" x="10" y="81" width="300" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="10" y="80" width="300" height="21.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -41,12 +41,12 @@
                     <constraint firstItem="jUC-4l-Ugn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="0SE-vB-7D3"/>
                     <constraint firstAttribute="trailing" secondItem="AYV-lm-cdu" secondAttribute="trailing" constant="10" id="6ka-Yu-bjC"/>
                     <constraint firstAttribute="bottom" secondItem="AYV-lm-cdu" secondAttribute="bottom" constant="10" id="Fnw-vg-HqO"/>
-                    <constraint firstItem="Msx-cf-x4r" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="ItV-2K-VjE"/>
+                    <constraint firstItem="Msx-cf-x4r" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="ItV-2K-VjE"/>
                     <constraint firstAttribute="trailing" secondItem="jUC-4l-Ugn" secondAttribute="trailing" constant="10" id="KxT-xl-Pdz"/>
                     <constraint firstItem="Msx-cf-x4r" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="UHi-ny-du0"/>
                     <constraint firstAttribute="trailing" secondItem="Msx-cf-x4r" secondAttribute="trailing" constant="10" id="eDd-EI-DZP"/>
-                    <constraint firstItem="jUC-4l-Ugn" firstAttribute="top" secondItem="Msx-cf-x4r" secondAttribute="bottom" constant="10" id="joU-zZ-jwR"/>
-                    <constraint firstItem="AYV-lm-cdu" firstAttribute="top" secondItem="jUC-4l-Ugn" secondAttribute="bottom" constant="10" id="tUg-tB-5FS"/>
+                    <constraint firstItem="jUC-4l-Ugn" firstAttribute="top" secondItem="Msx-cf-x4r" secondAttribute="bottom" constant="5" id="joU-zZ-jwR"/>
+                    <constraint firstItem="AYV-lm-cdu" firstAttribute="top" secondItem="jUC-4l-Ugn" secondAttribute="bottom" constant="5" id="tUg-tB-5FS"/>
                     <constraint firstItem="AYV-lm-cdu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="uQ2-R0-el7"/>
                 </constraints>
             </tableViewCellContentView>
