@@ -35,7 +35,7 @@ class SearchResultsTableViewController: UITableViewController {
         let cell = Bundle.main.loadNibNamed("CustomTableViewCell", owner: self, options: nil)?.first as! CustomTableViewCell
         
         cell.restauranName.text = restaurants[indexPath.row].name
-        cell.restaurantRating.text = String(describing: restaurants[indexPath.row].rating!)
+        cell.restaurantRating.text = "Rating: " + String(describing: restaurants[indexPath.row].rating!)
         cell.restaurantAddress.text = restaurants[indexPath.row].formatted_address
 
         return cell
