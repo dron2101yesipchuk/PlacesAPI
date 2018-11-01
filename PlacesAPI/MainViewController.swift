@@ -12,6 +12,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var address: UITextField!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var restaurants: [Restaurant] = []
     
     override func viewDidLoad() {
@@ -42,13 +43,17 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             alert()
             return
         }
+        activityIndicator.startAnimating()
         
         APIManager.sharedInstance.getRestaurants(address: address.text!, completionHandler: { (results, error) in
             if error == nil && results != nil {
                 self.restaurants.append(contentsOf: results?.results as! [Restaurant])
                 if let nextPage = results?.next_page_token {
-                    self.getNextRestaurants(nextPageToken: nextPage)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                        self.getNextRestaurants(nextPageToken: nextPage)
+                    }
                 } else {
+                    self.activityIndicator.stopAnimating()
                     let searchResultsViewController = SearchResultsTableViewController()
                     searchResultsViewController.restaurants.append(contentsOf: self.restaurants)
                     self.navigationController?.pushViewController(searchResultsViewController, animated: true)
@@ -63,8 +68,11 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             if error == nil && results != nil {
                 self.restaurants.append(contentsOf: results?.results as! [Restaurant])
                 if let nextPage = results?.next_page_token {
-                    self.getNextRestaurants(nextPageToken: nextPage)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                        self.getNextRestaurants(nextPageToken: nextPage)
+                    }
                 } else {
+                    self.activityIndicator.stopAnimating()
                     let searchResultsViewController = SearchResultsTableViewController()
                     searchResultsViewController.restaurants.append(contentsOf: self.restaurants)
                     self.navigationController?.pushViewController(searchResultsViewController, animated: true)

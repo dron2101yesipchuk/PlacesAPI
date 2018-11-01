@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="PlacesAPI" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="c5a-C2-LBO" id="0VI-GA-0cT"/>
                 <outlet property="address" destination="XyG-55-P41" id="GxM-2C-KfQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -34,11 +35,16 @@
                         <action selector="findRestaurants:" destination="-1" eventType="touchUpInside" id="RhZ-fc-Vkn"/>
                     </connections>
                 </button>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="c5a-C2-LBO">
+                    <rect key="frame" x="215" y="375.5" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="XyG-55-P41" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Gwg-e3-bgt"/>
+                <constraint firstItem="c5a-C2-LBO" firstAttribute="centerY" secondItem="bQl-cR-VDN" secondAttribute="centerY" id="OKD-3G-YcG"/>
                 <constraint firstItem="bQl-cR-VDN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="R7m-q7-Gb8"/>
+                <constraint firstItem="c5a-C2-LBO" firstAttribute="leading" secondItem="bQl-cR-VDN" secondAttribute="trailing" constant="10" id="Ty0-1Y-F1E"/>
                 <constraint firstItem="ivv-Ia-KWP" firstAttribute="trailing" secondItem="XyG-55-P41" secondAttribute="trailing" constant="50" id="X5X-Pg-w8E"/>
                 <constraint firstItem="bQl-cR-VDN" firstAttribute="top" secondItem="XyG-55-P41" secondAttribute="bottom" constant="20" id="knd-aO-quD"/>
                 <constraint firstItem="XyG-55-P41" firstAttribute="leading" secondItem="ivv-Ia-KWP" secondAttribute="leading" constant="50" id="yjC-MO-JM0"/>
