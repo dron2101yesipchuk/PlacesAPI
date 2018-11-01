@@ -15,6 +15,8 @@ class SearchResultsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.title = "Restaurants"
+        
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 80
 

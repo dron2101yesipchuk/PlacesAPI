@@ -40,9 +40,31 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         
         APIManager.sharedInstance.getRestaurants(address: address.text!, completionHandler: { (results, error) in
             if error == nil && results != nil {
-                let searchResultsViewController = SearchResultsTableViewController()
-                searchResultsViewController.restaurants = results?.results as! [Restaurant]
-                self.navigationController?.pushViewController(searchResultsViewController, animated: true)
+                self.restaurants.append(contentsOf: results?.results as! [Restaurant])
+                if let nextPage = results?.next_page_token {
+                    self.getNextRestaurants(nextPageToken: nextPage)
+                } else {
+                    let searchResultsViewController = SearchResultsTableViewController()
+                    searchResultsViewController.restaurants.append(contentsOf: self.restaurants)
+                    self.navigationController?.pushViewController(searchResultsViewController, animated: true)
+                }
+                
+            }
+        })
+    }
+    
+    func getNextRestaurants(nextPageToken: String){
+        APIManager.sharedInstance.getNextRestaurants(next_page_token: nextPageToken, completionHandler: { (results, error) in
+            if error == nil && results != nil {
+                self.restaurants.append(contentsOf: results?.results as! [Restaurant])
+                if let nextPage = results?.next_page_token {
+                    self.getNextRestaurants(nextPageToken: nextPage)
+                } else {
+                    let searchResultsViewController = SearchResultsTableViewController()
+                    searchResultsViewController.restaurants.append(contentsOf: self.restaurants)
+                    self.navigationController?.pushViewController(searchResultsViewController, animated: true)
+                }
+                
             }
         })
     }
