@@ -20,6 +20,12 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         address.delegate = self
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        restaurants = []
+        let searchResultsViewController = SearchResultsTableViewController()
+        searchResultsViewController.restaurants = []
+    }
+    
     //hiding keyboard on screen tap
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)

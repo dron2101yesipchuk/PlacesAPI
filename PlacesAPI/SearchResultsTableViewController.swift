@@ -20,6 +20,16 @@ class SearchResultsTableViewController: UITableViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 80
 
+        if restaurants.count == 0 {
+            self.navigationController?.popViewController(animated: true)
+            alert()
+        }
+    }
+    
+    func alert(){
+        let alert = UIAlertController(title: "There are no restaurants on this address", message: "", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 
     // MARK: - Table view data source

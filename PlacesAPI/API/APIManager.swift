@@ -18,7 +18,7 @@ class APIManager {
     func getRestaurants(address: String, completionHandler: @escaping (Result?, Error?) -> ()) {
         
         let newAddress = address.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
-        let URL = "\(baseURL)query=restaurants+in+\(newAddress)&radius=500&key=\(API_KEY)"
+        let URL = "\(baseURL)query=restaurants+in+\(newAddress)&key=\(API_KEY)"
         
         Alamofire.request(URL).responseJSON { response in
             switch response.result {
