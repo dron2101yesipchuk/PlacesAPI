@@ -8,17 +8,31 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
 class APIManager {
     let API_KEY = "AIzaSyD4huuD6alciZiZieoytqlZemCqjtXlYAY"
-    let baseURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+"
+    let baseURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?"
     
     static let sharedInstance = APIManager()
-    var manager: SessionManager?
     
-    init() {
-        let configuration = URLSessionConfiguration.default
-        self.manager = Alamofire.SessionManager(configuration: configuration)
+    func getRestaurants(address: String, completionHandler: @escaping (Result?, Error?) -> ()) {
+        
+        let newAddress = address.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
+        let URL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+\(newAddress)&key=\(API_KEY)"
+        
+        Alamofire.request(URL).responseJSON { response in
+            switch response.result {
+            case .success:
+                do {
+                    let responseObject = try JSONDecoder().decode(Result.self, from: response.data!)
+                    completionHandler(responseObject, nil)
+                } catch let err{
+                    print(err)
+                }
+        
+            case .failure(let error):
+                completionHandler(nil, error)
+            }
+        }
     }
 }
