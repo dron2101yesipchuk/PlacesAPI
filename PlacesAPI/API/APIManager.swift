@@ -18,14 +18,13 @@ class APIManager {
     func getRestaurants(address: String, completionHandler: @escaping (Result?, Error?) -> ()) {
         
         let newAddress = address.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
-        let URL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+\(newAddress)&radius=500&key=\(API_KEY)"
+        let URL = "\(baseURL)query=restaurants+in+\(newAddress)&radius=500&key=\(API_KEY)"
         
         Alamofire.request(URL).responseJSON { response in
             switch response.result {
             case .success:
                 do {
                     let responseObject = try JSONDecoder().decode(Result.self, from: response.data!)
-
                     completionHandler(responseObject, nil)
                 } catch let err{
                     print(err)
@@ -39,14 +38,13 @@ class APIManager {
     
     func getNextRestaurants(next_page_token: String, completionHandler: @escaping (Result?, Error?) -> ()) {
         
-        let URL = "https://maps.googleapis.com/maps/api/place/textsearch/json?pagetoken=\(next_page_token)&key=\(API_KEY)"
+        let URL = "\(baseURL)pagetoken=\(next_page_token)&key=\(API_KEY)"
         
         Alamofire.request(URL).responseJSON { response in
             switch response.result {
             case .success:
                 do {
                     let responseObject = try JSONDecoder().decode(Result.self, from: response.data!)
-                    
                     completionHandler(responseObject, nil)
                 } catch let err{
                     print(err)

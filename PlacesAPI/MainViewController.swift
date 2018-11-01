@@ -37,7 +37,6 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        
         APIManager.sharedInstance.getRestaurants(address: address.text!, completionHandler: { (results, error) in
             if error == nil && results != nil {
                 self.restaurants.append(contentsOf: results?.results as! [Restaurant])
