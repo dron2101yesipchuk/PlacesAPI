@@ -9,7 +9,7 @@
 import Foundation
 
 struct Restaurant: Decodable{
-    var name: String??
+    var name: String?
     var rating: Float?
-    var address: String?
+    var formatted_address: String?
 }

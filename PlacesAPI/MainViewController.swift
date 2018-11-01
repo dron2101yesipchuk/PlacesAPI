@@ -21,17 +21,10 @@ class MainViewController: UIViewController {
     @IBAction func findRestaurants(_ sender: Any) {
         APIManager.sharedInstance.getRestaurants(address: "м.Чернівці, вул. Головна, 220", completionHandler: { (results, error) in
             if error == nil && results != nil {
-                self.restaurants = results?.results as! [Restaurant]
+                let searchResultsViewController = SearchResultsTableViewController()
+                searchResultsViewController.restaurants = results?.results as! [Restaurant]
+                self.navigationController?.pushViewController(searchResultsViewController, animated: true)
             }
         })
-        
-        let searchResultsViewControllers = SearchResultsTableViewController()
-        self.navigationController?.pushViewController(searchResultsViewControllers, animated: true)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        let vc = segue.destination as? SearchResultsTableViewController
-        vc?.restaurants = self.restaurants
     }
 }

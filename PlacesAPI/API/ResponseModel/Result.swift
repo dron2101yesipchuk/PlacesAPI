@@ -10,6 +10,6 @@ import Foundation
 
 struct Result: Decodable{
     var status: String?
-    var nextPageToken: String?
+    var next_page_token: String?
     var results: [Restaurant?]
 }
