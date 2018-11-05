@@ -15,6 +15,7 @@ class APIManager {
     
     static let sharedInstance = APIManager()
     
+    //getting restaurants(maximum 20)
     func getRestaurants(address: String, completionHandler: @escaping (Result?, Error?) -> ()) {
         
         let newAddress = address.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
@@ -36,6 +37,7 @@ class APIManager {
         }
     }
     
+    //if there are more than 20 restaurants, getting next 20 restaurants with next_page_token
     func getNextRestaurants(next_page_token: String, completionHandler: @escaping (Result?, Error?) -> ()) {
         
         let URL = "\(baseURL)pagetoken=\(next_page_token)&key=\(API_KEY)"

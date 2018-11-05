@@ -19,6 +19,9 @@ class SearchResultsTableViewController: UITableViewController {
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 80
+        
+        let listNib = UINib.init(nibName: "CustomTableViewCell", bundle: nil)
+        tableView.register(listNib, forCellReuseIdentifier: "restaurantInfoCell")
 
         if restaurants.count == 0 {
             self.navigationController?.popViewController(animated: true)
@@ -44,7 +47,7 @@ class SearchResultsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = Bundle.main.loadNibNamed("CustomTableViewCell", owner: self, options: nil)?.first as! CustomTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "restaurantInfoCell", for: indexPath) as! CustomTableViewCell
         
         cell.restauranName.text = restaurants[indexPath.row].name
         cell.restaurantRating.text = "Rating: " + String(describing: restaurants[indexPath.row].rating!)

@@ -49,6 +49,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             if error == nil && results != nil {
                 self.restaurants.append(contentsOf: results?.results as! [Restaurant])
                 if let nextPage = results?.next_page_token {
+                    //Documantetion says, that there is a short delay between when a next_page_token is issued, and when it will become valid.
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2){
                         self.getNextRestaurants(nextPageToken: nextPage)
                     }
@@ -63,11 +64,13 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         })
     }
     
+    
     func getNextRestaurants(nextPageToken: String){
         APIManager.sharedInstance.getNextRestaurants(next_page_token: nextPageToken, completionHandler: { (results, error) in
             if error == nil && results != nil {
                 self.restaurants.append(contentsOf: results?.results as! [Restaurant])
                 if let nextPage = results?.next_page_token {
+                    //Documantetion says, that there is a short delay between when a next_page_token is issued, and when it will become valid.
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2){
                         self.getNextRestaurants(nextPageToken: nextPage)
                     }

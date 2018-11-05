@@ -1,0 +1,6 @@
+framework module Pods_PlacesAPI {
+  umbrella header "Pods-PlacesAPI-umbrella.h"
+
+  export *
+  module * { export * }
+}
